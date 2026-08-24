@@ -2,8 +2,20 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ZANE — AIGC Visual Designer',
-  description: 'Independent AIGC visual designer and creative artist exploring artificial intelligence, visual storytelling and digital culture.',
+  metadataBase: new URL('https://zane-aigc-visual-designer.zane777694.chatgpt.site'),
+  title: 'Benjamin Carter — Biological Age',
+  description: 'A cinematic personal health dashboard for biological age, insights, activities, and action plans.',
+  openGraph: {
+    title: 'Biological Age',
+    description: 'Your health, in motion.',
+    images: [{ url: '/og.png', width: 1536, height: 1024, alt: 'Biological Age — Your health, in motion.' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Biological Age',
+    description: 'Your health, in motion.',
+    images: ['/og.png'],
+  },
 };
 
 export default function RootLayout({
@@ -12,11 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"><head>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    </head><body>{children}</body>
+    <html lang="en"><body>{children}</body>
     </html>
   );
 }
