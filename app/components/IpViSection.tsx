@@ -103,23 +103,34 @@ export default function IpViSection() {
 
       <section className="portfolio-section ipvi-section" aria-label="IP and visual identity projects">
         <div className="ipvi-section-inner">
-          <AnimatedElement className="ipvi-featured-reveal">
-            <IpViFeaturedStage
-              project={activeProject}
-              projectIndex={activeProjectIndex}
-              flipped={flipped}
-              extensionIndex={extensionIndex}
-              onFlip={() => { if (activeProject.extensions.length) setFlipped(true); }}
-              onClose={() => setFlipped(false)}
-              onPrevious={showPreviousExtension}
-              onNext={showNextExtension}
-            />
-          </AnimatedElement>
+          <div className="ipvi-desktop-showcase">
+            <AnimatedElement className="ipvi-featured-reveal">
+              <IpViFeaturedStage
+                project={activeProject}
+                projectIndex={activeProjectIndex}
+                flipped={flipped}
+                extensionIndex={extensionIndex}
+                onFlip={() => { if (activeProject.extensions.length) setFlipped((value) => !value); }}
+                onClose={() => setFlipped(false)}
+                onPrevious={showPreviousExtension}
+                onNext={showNextExtension}
+                onSelectExtension={setExtensionIndex}
+              />
+            </AnimatedElement>
 
-          <div className="ipvi-project-grid" aria-label="Choose another IP and VI project">
-            {selectorProjects.map(({ project, index }, selectorIndex) => (
-              <AnimatedElement key={project.id} delay={Math.min(80 + selectorIndex * 100, 380)}>
-                <IpViProjectCard project={project} index={index} onSelect={() => selectProject(index)} />
+            <div className="ipvi-project-grid" aria-label="Choose another IP and VI project">
+              {selectorProjects.map(({ project, index }, selectorIndex) => (
+                <AnimatedElement key={project.id} delay={Math.min(80 + selectorIndex * 100, 380)}>
+                  <IpViProjectCard project={project} index={index} onSelect={() => selectProject(index)} />
+                </AnimatedElement>
+              ))}
+            </div>
+          </div>
+
+          <div className="ipvi-mobile-project-list">
+            {ipviProjects.map((project, index) => (
+              <AnimatedElement key={project.id} delay={Math.min(80 + index * 80, 400)}>
+                <IpViProjectCard project={project} index={index} />
               </AnimatedElement>
             ))}
           </div>
