@@ -4,16 +4,24 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import type { PosterWork } from './PosterCard';
+
+export type LightboxWork = {
+  id: string;
+  number: string;
+  title: string;
+  category: string;
+  image: string;
+};
 
 type WorkLightboxProps = {
-  works: PosterWork[];
+  works: LightboxWork[];
   activeIndex: number | null;
   onClose: () => void;
   onChange: (index: number) => void;
+  variant?: 'default' | 'wide';
 };
 
-function LightboxMedia({ work }: { work: PosterWork }) {
+function LightboxMedia({ work }: { work: LightboxWork }) {
   const [imageAvailable, setImageAvailable] = useState(true);
 
   return (
@@ -25,7 +33,7 @@ function LightboxMedia({ work }: { work: PosterWork }) {
       {imageAvailable && (
         <Image
           src={work.image}
-          alt={`${work.title} — ${work.category}`}
+          alt={`${work.title || `Work ${work.number}`} — ${work.category}`}
           fill
           sizes="95vw"
           className="work-lightbox-image"
@@ -40,7 +48,7 @@ function LightboxMedia({ work }: { work: PosterWork }) {
   );
 }
 
-export default function WorkLightbox({ works, activeIndex, onClose, onChange }: WorkLightboxProps) {
+export default function WorkLightbox({ works, activeIndex, onClose, onChange, variant = 'default' }: WorkLightboxProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const touchStartX = useRef<number | null>(null);
 
@@ -82,7 +90,7 @@ export default function WorkLightbox({ works, activeIndex, onClose, onChange }: 
       className="work-lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label={`${work.title} large preview`}
+      aria-label={`${work.title || `Work ${work.number}`} large preview`}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -97,13 +105,13 @@ export default function WorkLightbox({ works, activeIndex, onClose, onChange }: 
         touchStartX.current = null;
       }}
     >
-      <div className="work-lightbox-panel">
+      <div className={`work-lightbox-panel ${variant === 'wide' ? 'work-lightbox-panel-wide' : ''}`}>
         <div className="work-lightbox-topbar">
           <div>
             <span>{work.number} / {String(works.length).padStart(2, '0')}</span>
-            <strong>{work.title}</strong>
+            {work.title && <strong>{work.title}</strong>}
           </div>
-          <button ref={closeButtonRef} type="button" onClick={onClose} aria-label="Close poster preview">
+          <button ref={closeButtonRef} type="button" onClick={onClose} aria-label="Close work preview">
             <X size={20} strokeWidth={1.6} />
           </button>
         </div>
@@ -113,8 +121,8 @@ export default function WorkLightbox({ works, activeIndex, onClose, onChange }: 
         <div className="work-lightbox-footer">
           <span>{work.category}</span>
           <div>
-            <button type="button" onClick={showPrevious} aria-label="Previous poster"><ChevronLeft size={22} /></button>
-            <button type="button" onClick={showNext} aria-label="Next poster"><ChevronRight size={22} /></button>
+            <button type="button" onClick={showPrevious} aria-label="Previous work"><ChevronLeft size={22} /></button>
+            <button type="button" onClick={showNext} aria-label="Next work"><ChevronRight size={22} /></button>
           </div>
         </div>
       </div>
