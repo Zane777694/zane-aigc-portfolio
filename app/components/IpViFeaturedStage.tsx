@@ -44,21 +44,21 @@ export default function IpViFeaturedStage({
 
           <div className="ipvi-featured-face ipvi-featured-face-back" aria-hidden={!flipped}>
             <button type="button" className="ipvi-extension-backdrop" onClick={onClose} tabIndex={flipped ? 0 : -1} aria-label="Flip back to project cover">
-              {extension && <Image src={extension} alt={`${project.title} VI extension ${extensionIndex + 1}`} fill sizes="100vw" className="ipvi-extension-image" unoptimized />}
+              {extension && <Image key={`${project.id}-${extensionIndex}`} src={extension} alt={`${project.title} VI extension ${extensionIndex + 1}`} fill sizes="100vw" className="ipvi-extension-image" unoptimized />}
               <span className="ipvi-extension-shade" aria-hidden="true" />
             </button>
             <div className="ipvi-extension-toolbar">
-              <span><small>{project.title}</small><strong>VI EXTENSION {String(extensionIndex + 1).padStart(2, '0')} / {String(project.extensions.length).padStart(2, '0')}</strong></span>
-              <button type="button" onClick={onClose} tabIndex={flipped ? 0 : -1} aria-label="Flip back to project cover"><RotateCcw size={18} /></button>
+              <span aria-live="polite"><small>{project.title}</small><strong>VI EXTENSION {String(extensionIndex + 1).padStart(2, '0')} / {String(project.extensions.length).padStart(2, '0')}</strong></span>
+              <button type="button" onClick={(event) => { event.stopPropagation(); onClose(); }} tabIndex={flipped ? 0 : -1} aria-label="Flip back to project cover"><RotateCcw size={18} /></button>
             </div>
             <div className="ipvi-extension-controls">
-              <button type="button" onClick={onPrevious} tabIndex={flipped ? 0 : -1} aria-label="Previous VI extension"><ChevronLeft size={22} /></button>
+              <button type="button" onClick={(event) => { event.stopPropagation(); onPrevious(); }} tabIndex={flipped ? 0 : -1} aria-label="Previous VI extension"><ChevronLeft size={22} /></button>
               <div aria-label="VI extension position">
                 {project.extensions.map((item, index) => (
-                  <button key={item} type="button" className={index === extensionIndex ? 'is-active' : ''} onClick={() => onSelectExtension(index)} tabIndex={flipped ? 0 : -1} aria-label={`Show VI extension ${index + 1}`} />
+                  <button key={item} type="button" className={index === extensionIndex ? 'is-active' : ''} onClick={(event) => { event.stopPropagation(); onSelectExtension(index); }} tabIndex={flipped ? 0 : -1} aria-label={`Show VI extension ${index + 1}`} />
                 ))}
               </div>
-              <button type="button" onClick={onNext} tabIndex={flipped ? 0 : -1} aria-label="Next VI extension"><ChevronRight size={22} /></button>
+              <button type="button" onClick={(event) => { event.stopPropagation(); onNext(); }} tabIndex={flipped ? 0 : -1} aria-label="Next VI extension"><ChevronRight size={22} /></button>
             </div>
           </div>
         </div>
