@@ -112,7 +112,7 @@ function SectionFrame({
   children?: React.ReactNode;
 }) {
   return (
-    <section id={id} className="portfolio-section" aria-labelledby={`${id}-title`}>
+    <section id={id} className={`portfolio-section ${id === 'contact' ? 'contact-section' : ''}`} aria-labelledby={`${id}-title`}>
       <Reveal direction="up" className="section-frame">
         <div className="section-heading">
           <span className="section-number">{number}</span>
@@ -215,10 +215,13 @@ export default function Home() {
 
       <AboutSection />
       <SectionFrame id="contact" number="03" title="CONTACT" chineseTitle="联系我" subtitle="Let's Work Together">
-        <div className="contact-fields" aria-label="Contact information placeholders">
-          <span>Name</span><span>Email</span><span>Phone</span><span>Social / Portfolio</span>
+        <div className="contact-fields" aria-label="Contact information">
+          <div><small>NAME / 姓名</small><strong>武子尧</strong></div>
+          <a href="mailto:1413159905@qq.com"><small>EMAIL / 邮箱</small><strong>1413159905@qq.com</strong></a>
+          <a href="tel:13844067883"><small>PHONE / 电话</small><strong>13844067883</strong></a>
+          <div><small>WECHAT / 微信</small><strong>13844067883</strong></div>
         </div>
-        <span className="contact-cta">CONTACT CTA</span>
+        <span className="contact-cta">OPEN TO COLLABORATION / 欢迎联系</span>
       </SectionFrame>
       <SiteFooter />
     </main>

@@ -57,10 +57,10 @@ export default function BannerSection() {
                 <ArrowLeft size={24} strokeWidth={1.4} aria-hidden="true" />
                 <span><small>PREVIOUS CATEGORY</small><strong>POSTER DESIGN</strong><em>VIEW POSTER WORKS</em></span>
               </Link>
-              <div className="poster-next-category poster-next-category-disabled" aria-disabled="true">
-                <span><small>NEXT CATEGORY</small><strong>IP &amp; VI</strong><em>COMING NEXT</em></span>
+              <Link className="poster-next-category" href="/visual/ipvi">
+                <span><small>NEXT CATEGORY</small><strong>IP &amp; VI</strong><em>VIEW IP &amp; VI PROJECTS</em></span>
                 <ArrowRight size={24} strokeWidth={1.4} aria-hidden="true" />
-              </div>
+              </Link>
             </div>
           </AnimatedElement>
         </div>

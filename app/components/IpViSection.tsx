@@ -145,10 +145,10 @@ export default function IpViSection() {
                 <ArrowLeft size={24} strokeWidth={1.4} aria-hidden="true" />
                 <span><small>PREVIOUS CATEGORY</small><strong>BANNER DESIGN</strong><em>VIEW BANNER WORKS</em></span>
               </Link>
-              <div className="poster-next-category poster-next-category-disabled" aria-disabled="true">
-                <span><small>NEXT CATEGORY</small><strong>APP LAUNCH SCREEN</strong><em>COMING NEXT</em></span>
+              <Link className="poster-next-category" href="/visual/app">
+                <span><small>NEXT CATEGORY</small><strong>APP LAUNCH SCREEN</strong><em>VIEW STARTUP VISUALS</em></span>
                 <ArrowRight size={24} strokeWidth={1.4} aria-hidden="true" />
-              </div>
+              </Link>
             </div>
           </AnimatedElement>
         </div>

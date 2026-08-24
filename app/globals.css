@@ -79,7 +79,7 @@ button { color: inherit; font: inherit; }
 
 .portfolio-section { position: relative; display: flex; min-height: 68svh; align-items: center; padding: 5.5rem 1.25rem; background: radial-gradient(circle at 82% 18%, rgba(239,206,150,.055), transparent 28%), linear-gradient(180deg, #0a0a0a, #0d0d0d); }
 .portfolio-section:nth-of-type(even) { background: radial-gradient(circle at 12% 74%, rgba(110,123,128,.07), transparent 30%), #0b0b0b; }
-.about-section { min-height: 100svh; align-items: stretch; padding-top: 6.5rem; padding-bottom: 6.5rem; }
+.about-section { min-height: 100svh; align-items: stretch; padding-top: 6.5rem; padding-bottom: 3.5rem; }
 .about-section-inner { width: 100%; max-width: 1440px; margin: 0 auto; }
 .about-section-header { margin-bottom: 2rem; }
 .about-section .section-heading h2 { margin: 0; font-size: clamp(2.6rem, 8vw, 6.75rem); font-weight: 650; line-height: .86; letter-spacing: -.065em; }
@@ -391,8 +391,13 @@ button { color: inherit; font: inherit; }
 .section-kicker { margin: .2rem 0 .55rem; color: rgba(255,255,255,.4); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
 .section-heading h2 { margin: 0; font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 650; line-height: .95; letter-spacing: -.06em; }
 .section-placeholder { display: flex; min-height: 220px; flex-direction: column; align-items: center; justify-content: center; gap: .65rem; margin-top: 2rem; border: 1px dashed rgba(255,255,255,.1); border-radius: 20px; color: rgba(255,255,255,.23); font-size: .58rem; letter-spacing: .16em; text-align: center; }
-.contact-fields { display: grid; width: min(100%, 720px); grid-template-columns: repeat(2, minmax(0,1fr)); gap: .65rem; }
-.contact-fields span { padding: .9rem; border-bottom: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.42); text-align: left; }
+.contact-section { min-height: auto; align-items: flex-start; padding-top: 2.5rem; padding-bottom: 5rem; }
+.contact-fields { display: grid; width: min(100%, 820px); grid-template-columns: minmax(0,1fr); gap: .65rem; }
+.contact-fields > * { display: flex; min-width: 0; flex-direction: column; gap: .42rem; padding: .9rem; border-bottom: 1px solid rgba(255,255,255,.12); text-align: left; }
+.contact-fields small { color: rgba(255,255,255,.36); font-size: .52rem; font-weight: 600; letter-spacing: .13em; }
+.contact-fields strong { overflow-wrap: anywhere; color: rgba(255,255,255,.86); font-size: .82rem; font-weight: 500; letter-spacing: .02em; }
+.contact-fields a { transition: border-color .25s ease, background .25s ease; }
+.contact-fields a:hover, .contact-fields a:focus-visible { border-color: rgba(239,206,150,.42); background: rgba(239,206,150,.04); outline: 0; }
 .contact-cta { margin-top: 1rem; padding: .65rem 1rem; border: 1px solid rgba(239,206,150,.32); border-radius: 999px; color: #efce96; }
 
 .site-footer { display: flex; min-height: 46svh; flex-direction: column; justify-content: flex-end; gap: 1.5rem; padding: 4rem 1.25rem 2rem; border-top: 1px solid rgba(255,255,255,.08); background: #080808; }
@@ -492,6 +497,7 @@ button { color: inherit; font: inherit; }
   .work-lightbox-topbar, .work-lightbox-footer { padding: 1rem 1.2rem; }
   .section-frame { min-height: 460px; padding: 2rem; border-radius: 34px; }
   .section-placeholder { min-height: 270px; }
+  .contact-fields { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .site-footer { padding: 6rem 2rem 2.5rem; }
   .series-landing { padding: 10rem 2rem 8rem; }
   .series-page-heading { margin-bottom: 4rem; }
@@ -507,7 +513,7 @@ button { color: inherit; font: inherit; }
   .hero-card { width: 620px; height: 550px; border-radius: 40px; }
   .hero-footer { width: 620px; }
   .portfolio-section { padding-right: 3rem; padding-left: 3rem; }
-  .about-section { padding-top: 8rem; padding-bottom: 8rem; }
+  .about-section { padding-top: 8rem; padding-bottom: 4rem; }
   .about-section-header { margin-bottom: 3.5rem; }
   .about-layout { grid-template-columns: minmax(320px, .9fr) minmax(0, 1.25fr); gap: 1.5rem; align-items: stretch; }
   .about-photo-column, .about-content-column, .about-profile-reveal { height: 100%; }

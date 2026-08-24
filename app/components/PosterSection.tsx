@@ -82,10 +82,10 @@ export default function PosterSection() {
                 <ArrowLeft size={24} strokeWidth={1.4} aria-hidden="true" />
                 <span><small>BACK TO</small><strong>AI VISUAL DESIGN</strong><em>VIEW ALL CATEGORIES</em></span>
               </Link>
-              <div className="poster-next-category poster-next-category-disabled" aria-disabled="true">
-                <span><small>NEXT CATEGORY</small><strong>BANNER DESIGN</strong><em>COMING NEXT</em></span>
+              <Link className="poster-next-category" href="/visual/banner">
+                <span><small>NEXT CATEGORY</small><strong>BANNER DESIGN</strong><em>VIEW BANNER WORKS</em></span>
                 <ArrowRight size={24} strokeWidth={1.4} aria-hidden="true" />
-              </div>
+              </Link>
             </div>
           </PosterReveal>
         </div>
