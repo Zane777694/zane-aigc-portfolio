@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { useState } from 'react';
 
 export type IpViProject = {
@@ -18,13 +18,25 @@ export type IpViProject = {
 
 export default function IpViProjectCard({ project, index, onSelect }: { project: IpViProject; index: number; onSelect?: () => void }) {
   const [imageAvailable, setImageAvailable] = useState(true);
+  const [showMobileExtensions, setShowMobileExtensions] = useState(false);
+  const [mobileExtensionIndex, setMobileExtensionIndex] = useState(0);
   const interactive = Boolean(onSelect);
+  const mobileExtensionsEnabled = !interactive && project.extensions.length > 0;
+  const mobileExtension = project.extensions[mobileExtensionIndex];
+
+  const showPreviousMobileExtension = () => {
+    setMobileExtensionIndex((value) => (value - 1 + project.extensions.length) % project.extensions.length);
+  };
+
+  const showNextMobileExtension = () => {
+    setMobileExtensionIndex((value) => (value + 1) % project.extensions.length);
+  };
 
   const content = (
     <>
       <div className="ipvi-project-media">
         <div className="ipvi-project-placeholder" aria-hidden="true"><span>{String(index + 1).padStart(2, '0')}</span></div>
-        {imageAvailable && (
+        {imageAvailable && !showMobileExtensions && (
           <Image
             src={project.image}
             alt={`${project.title} IP and visual identity project cover`}
@@ -35,8 +47,46 @@ export default function IpViProjectCard({ project, index, onSelect }: { project:
             unoptimized
           />
         )}
+        {showMobileExtensions && mobileExtension && (
+          <Image
+            key={`${project.id}-mobile-${mobileExtensionIndex}`}
+            src={mobileExtension}
+            alt={`${project.title} VI extension ${mobileExtensionIndex + 1}`}
+            fill
+            sizes="100vw"
+            className="ipvi-project-image ipvi-mobile-extension-image"
+            unoptimized
+          />
+        )}
         <div className="ipvi-project-overlay" aria-hidden="true" />
         <span className="ipvi-project-index">{String(index + 1).padStart(2, '0')}</span>
+        {mobileExtensionsEnabled && (
+          <>
+            <button
+              type="button"
+              className="ipvi-mobile-media-toggle"
+              onClick={() => setShowMobileExtensions((value) => !value)}
+              aria-label={showMobileExtensions ? `Return to ${project.title} project cover` : `View ${project.title} VI extensions`}
+            />
+            {showMobileExtensions && (
+              <>
+                <span className="ipvi-mobile-vi-counter" aria-live="polite">
+                  VI {String(mobileExtensionIndex + 1).padStart(2, '0')} / {String(project.extensions.length).padStart(2, '0')}
+                </span>
+                <div className="ipvi-mobile-extension-controls">
+                  <button type="button" onClick={(event) => { event.stopPropagation(); showPreviousMobileExtension(); }} aria-label="Previous VI extension"><ChevronLeft size={18} /></button>
+                  <div>
+                    {project.extensions.map((item, extensionItemIndex) => (
+                      <button key={item} type="button" className={extensionItemIndex === mobileExtensionIndex ? 'is-active' : ''} onClick={(event) => { event.stopPropagation(); setMobileExtensionIndex(extensionItemIndex); }} aria-label={`Show VI extension ${extensionItemIndex + 1}`} />
+                    ))}
+                  </div>
+                  <button type="button" onClick={(event) => { event.stopPropagation(); showNextMobileExtension(); }} aria-label="Next VI extension"><ChevronRight size={18} /></button>
+                  <button type="button" onClick={(event) => { event.stopPropagation(); setShowMobileExtensions(false); }} aria-label="Return to project cover"><RotateCcw size={16} /></button>
+                </div>
+              </>
+            )}
+          </>
+        )}
       </div>
 
       <div className="ipvi-project-content">
