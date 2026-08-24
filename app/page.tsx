@@ -59,6 +59,7 @@ function Reveal({
 
 function PortfolioCard({
   title,
+  chineseTitle,
   subtitle,
   href,
   delay,
@@ -66,6 +67,7 @@ function PortfolioCard({
   tone,
 }: {
   title: string;
+  chineseTitle: string;
   subtitle: string;
   href: string;
   delay: number;
@@ -79,10 +81,13 @@ function PortfolioCard({
         href={href}
         style={image ? { backgroundImage: `url(${image})` } : undefined}
       >
-        <span className="card-title">{title}</span>
+        <span className="card-title-wrap">
+          <span className="card-title">{title}</span>
+          <span className="card-title-chinese">{chineseTitle}</span>
+        </span>
         <span className="card-bottom">
           <span className="card-subtitle">{subtitle}</span>
-          <span className={`round-arrow ${image ? '' : 'round-arrow-dark'}`} aria-hidden="true">
+          <span className="round-arrow" aria-hidden="true">
             <ArrowRight size={17} strokeWidth={1.7} />
           </span>
         </span>
@@ -95,12 +100,14 @@ function SectionFrame({
   id,
   number,
   title,
+  chineseTitle,
   subtitle,
   children,
 }: {
   id: string;
   number: string;
   title: string;
+  chineseTitle?: string;
   subtitle: string;
   children?: React.ReactNode;
 }) {
@@ -112,6 +119,7 @@ function SectionFrame({
           <div>
             <p className="section-kicker">{subtitle}</p>
             <h2 id={`${id}-title`}>{title}</h2>
+            {chineseTitle ? <p className="section-chinese-title">{chineseTitle}</p> : null}
           </div>
         </div>
         <div className="section-placeholder">
@@ -194,19 +202,19 @@ export default function Home() {
 
           <div className="cards-grid" aria-label="Portfolio sections">
             <div className="card-column">
-              <PortfolioCard title="AI VISUAL DESIGN" subtitle="Poster / Banner / Illustration" href="/visual" delay={500} tone="gold" />
-              <PortfolioCard title="ABOUT ME" subtitle="Profile / Experience" href="#about" delay={800} tone="slate" />
+              <PortfolioCard title="AI VISUAL DESIGN" chineseTitle="AI视觉设计" subtitle="Poster / Banner / Illustration" href="/visual" delay={500} tone="gold" />
+              <PortfolioCard title="ABOUT ME" chineseTitle="个人简介" subtitle="Profile / Experience" href="#about" delay={800} tone="slate" />
             </div>
             <div className="card-column">
-              <PortfolioCard title="AI SERIES" subtitle="Character / Scene / Props" href="/series" delay={650} image={SERIES_IMAGE_URL} />
-              <PortfolioCard title="CONTACT" subtitle="Let's Work Together" href="#contact" delay={950} image={CONTACT_IMAGE_URL} />
+              <PortfolioCard title="AI SERIES" chineseTitle="AI剧集" subtitle="Character / Scene / Props" href="/series" delay={650} image={SERIES_IMAGE_URL} />
+              <PortfolioCard title="CONTACT" chineseTitle="联系我" subtitle="Let's Work Together" href="#contact" delay={950} image={CONTACT_IMAGE_URL} />
             </div>
           </div>
         </div>
       </section>
 
       <AboutSection />
-      <SectionFrame id="contact" number="03" title="CONTACT" subtitle="Let's Work Together">
+      <SectionFrame id="contact" number="03" title="CONTACT" chineseTitle="联系我" subtitle="Let's Work Together">
         <div className="contact-fields" aria-label="Contact information placeholders">
           <span>Name</span><span>Email</span><span>Phone</span><span>Social / Portfolio</span>
         </div>
