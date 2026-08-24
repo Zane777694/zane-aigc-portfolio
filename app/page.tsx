@@ -63,17 +63,19 @@ function PortfolioCard({
   href,
   delay,
   image,
+  tone,
 }: {
   title: string;
   subtitle: string;
   href: string;
   delay: number;
   image?: string;
+  tone?: 'gold' | 'slate';
 }) {
   return (
     <Reveal delay={delay} direction="right">
       <Link
-        className={`info-card ${image ? 'image-card' : 'glass-card'}`}
+        className={`info-card ${image ? 'image-card' : 'glass-card'} ${tone ? `info-card-${tone}` : ''}`}
         href={href}
         style={image ? { backgroundImage: `url(${image})` } : undefined}
       >
@@ -192,8 +194,8 @@ export default function Home() {
 
           <div className="cards-grid" aria-label="Portfolio sections">
             <div className="card-column">
-              <PortfolioCard title="AI VISUAL DESIGN" subtitle="Poster / Banner / Illustration" href="/visual" delay={500} />
-              <PortfolioCard title="ABOUT ME" subtitle="Profile / Experience" href="#about" delay={800} />
+              <PortfolioCard title="AI VISUAL DESIGN" subtitle="Poster / Banner / Illustration" href="/visual" delay={500} tone="gold" />
+              <PortfolioCard title="ABOUT ME" subtitle="Profile / Experience" href="#about" delay={800} tone="slate" />
             </div>
             <div className="card-column">
               <PortfolioCard title="AI SERIES" subtitle="Character / Scene / Props" href="/series" delay={650} image={SERIES_IMAGE_URL} />

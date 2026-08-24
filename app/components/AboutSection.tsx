@@ -121,12 +121,12 @@ export default function AboutSection() {
                 </div>
               </article>
             </AboutReveal>
+          </div>
 
-            <div className="about-small-grid">
-              <AboutReveal delay={360}><ListCard title="FOCUS" items={focusItems} /></AboutReveal>
-              <AboutReveal delay={480}><ListCard title="EXPERIENCE" items={experienceItems} /></AboutReveal>
-              <AboutReveal delay={600}><ListCard title="TOOLS" items={toolItems} className="about-tools-card" /></AboutReveal>
-            </div>
+          <div className="about-small-grid">
+            <AboutReveal delay={360}><ListCard title="FOCUS" items={focusItems} /></AboutReveal>
+            <AboutReveal delay={480}><ListCard title="EXPERIENCE" items={experienceItems} /></AboutReveal>
+            <AboutReveal delay={600}><ListCard title="TOOLS" items={toolItems} className="about-tools-card" /></AboutReveal>
           </div>
         </div>
       </div>
