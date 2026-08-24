@@ -13,16 +13,19 @@ export type IpViProject = {
   description: string;
   href: string;
   featured: boolean;
+  extensions: string[];
 };
 
-export default function IpViProjectCard({ project, index }: { project: IpViProject; index: number }) {
+export default function IpViProjectCard({ project, index, onSelect }: { project: IpViProject; index: number; onSelect: () => void }) {
   const [imageAvailable, setImageAvailable] = useState(true);
 
   return (
-    <article
-      className={`ipvi-project-card ${project.featured ? 'ipvi-project-card-featured' : ''}`}
-      aria-label={`${project.title}, project details coming soon`}
+    <button
+      type="button"
+      className="ipvi-project-card ipvi-project-selector-card"
+      aria-label={`Show ${project.title} in the featured project area`}
       data-project-href={project.href}
+      onClick={onSelect}
     >
       <div className="ipvi-project-media">
         <div className="ipvi-project-placeholder" aria-hidden="true"><span>{String(index + 1).padStart(2, '0')}</span></div>
@@ -47,13 +50,11 @@ export default function IpViProjectCard({ project, index }: { project: IpViProje
           <h2>{project.title}</h2>
           <span>{project.subtitle}</span>
         </div>
-        <p className="ipvi-project-description">{project.description}</p>
-        <span className="ipvi-project-action" aria-disabled="true">
-          <span>VIEW PROJECT</span>
-          <em>COMING SOON</em>
+        <span className="ipvi-project-action">
+          <span>VIEW LARGE</span>
           <ArrowUpRight size={20} strokeWidth={1.5} aria-hidden="true" />
         </span>
       </div>
-    </article>
+    </button>
   );
 }

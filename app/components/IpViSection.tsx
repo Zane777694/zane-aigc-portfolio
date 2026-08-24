@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import AnimatedElement from './AnimatedElement';
+import IpViFeaturedStage from './IpViFeaturedStage';
 import IpViProjectCard, { type IpViProject } from './IpViProjectCard';
 
 export const ipviProjects: IpViProject[] = [
@@ -13,6 +17,7 @@ export const ipviProjects: IpViProject[] = [
     description: '宇宙探索主题角色设定与品牌视觉延展。',
     href: '/visual/ipvi/qihang-bear',
     featured: true,
+    extensions: ['/works/ipvi/qihang-bear/vi-01.png', '/works/ipvi/qihang-bear/vi-02.png', '/works/ipvi/qihang-bear/vi-03.png'],
   },
   {
     id: 'baby-shark',
@@ -23,6 +28,7 @@ export const ipviProjects: IpViProject[] = [
     description: '海洋探险主题 IP 形象与 VI 应用体系。',
     href: '/visual/ipvi/baby-shark',
     featured: false,
+    extensions: ['/works/ipvi/baby-shark/vi-01.png', '/works/ipvi/baby-shark/vi-02.png', '/works/ipvi/baby-shark/vi-03.png'],
   },
   {
     id: 'pingsheng',
@@ -33,6 +39,7 @@ export const ipviProjects: IpViProject[] = [
     description: '以自然观察与平和生活为核心的熊猫角色视觉。',
     href: '/visual/ipvi/pingsheng',
     featured: false,
+    extensions: [],
   },
   {
     id: 'spark-ko',
@@ -43,6 +50,7 @@ export const ipviProjects: IpViProject[] = [
     description: '街头拳击主题角色设定、动作与表情系统。',
     href: '/visual/ipvi/spark-ko',
     featured: false,
+    extensions: [],
   },
   {
     id: 'honey-pup',
@@ -53,10 +61,31 @@ export const ipviProjects: IpViProject[] = [
     description: '花蜜使者主题角色设定与温暖品牌视觉。',
     href: '/visual/ipvi/honey-pup',
     featured: false,
+    extensions: [],
   },
 ];
 
 export default function IpViSection() {
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [extensionIndex, setExtensionIndex] = useState(0);
+  const activeProject = ipviProjects[activeProjectIndex];
+  const selectorProjects = ipviProjects.map((project, index) => ({ project, index })).filter(({ index }) => index !== activeProjectIndex);
+
+  const selectProject = (index: number) => {
+    setActiveProjectIndex(index);
+    setFlipped(false);
+    setExtensionIndex(0);
+  };
+
+  const showPreviousExtension = () => {
+    setExtensionIndex((value) => (value - 1 + activeProject.extensions.length) % activeProject.extensions.length);
+  };
+
+  const showNextExtension = () => {
+    setExtensionIndex((value) => (value + 1) % activeProject.extensions.length);
+  };
+
   return (
     <>
       <section className="poster-page-hero ipvi-page-hero" aria-labelledby="ipvi-page-title">
@@ -74,10 +103,23 @@ export default function IpViSection() {
 
       <section className="portfolio-section ipvi-section" aria-label="IP and visual identity projects">
         <div className="ipvi-section-inner">
-          <div className="ipvi-project-grid">
-            {ipviProjects.map((project, index) => (
-              <AnimatedElement key={project.id} delay={Math.min(80 + index * 100, 460)} className={project.featured ? 'ipvi-project-featured' : ''}>
-                <IpViProjectCard project={project} index={index} />
+          <AnimatedElement className="ipvi-featured-reveal">
+            <IpViFeaturedStage
+              project={activeProject}
+              projectIndex={activeProjectIndex}
+              flipped={flipped}
+              extensionIndex={extensionIndex}
+              onFlip={() => { if (activeProject.extensions.length) setFlipped(true); }}
+              onClose={() => setFlipped(false)}
+              onPrevious={showPreviousExtension}
+              onNext={showNextExtension}
+            />
+          </AnimatedElement>
+
+          <div className="ipvi-project-grid" aria-label="Choose another IP and VI project">
+            {selectorProjects.map(({ project, index }, selectorIndex) => (
+              <AnimatedElement key={project.id} delay={Math.min(80 + selectorIndex * 100, 380)}>
+                <IpViProjectCard project={project} index={index} onSelect={() => selectProject(index)} />
               </AnimatedElement>
             ))}
           </div>
