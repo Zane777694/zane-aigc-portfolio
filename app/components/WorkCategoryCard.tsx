@@ -8,6 +8,7 @@ import { useState, type CSSProperties } from 'react';
 export type WorkCategory = {
   number: string;
   title: string;
+  chineseTitle: string;
   subtitle: string;
   image: string;
   href: string;
@@ -23,7 +24,7 @@ export default function WorkCategoryCard({ category }: { category: WorkCategory 
       href={category.href}
       className={`work-category-card ${category.featured ? 'work-category-featured' : ''}`}
       style={{ '--work-angle': `${angle}deg` } as CSSProperties}
-      aria-label={`${category.title}: ${category.subtitle}`}
+      aria-label={`${category.title} / ${category.chineseTitle}: ${category.subtitle}`}
     >
       <div className="work-card-media" aria-hidden="true">
         <div className="work-image-placeholder">
@@ -51,10 +52,11 @@ export default function WorkCategoryCard({ category }: { category: WorkCategory 
       <div className="work-card-content">
         <div>
           <h3>{category.title}</h3>
+          <span className="work-card-chinese-title">{category.chineseTitle}</span>
           <p>{category.subtitle}</p>
         </div>
         <span className="work-card-action">
-          <span>VIEW WORKS</span>
+          <span>VIEW WORKS / 查看作品</span>
           <ArrowRight size={17} strokeWidth={1.6} aria-hidden="true" />
         </span>
       </div>
