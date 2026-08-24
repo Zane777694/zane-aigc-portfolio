@@ -215,6 +215,31 @@ button { color: inherit; font: inherit; }
 .banner-end-reveal { margin-top: 2rem; }
 .banner-end-navigation { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; }
 .work-lightbox-panel-wide { width: min(100%, 1680px); max-height: 96svh; }
+.app-launch-section { min-height: 100svh; align-items: stretch; padding-top: 4rem; padding-bottom: 6.5rem; background: radial-gradient(circle at 88% 14%, rgba(239,206,150,.05), transparent 27%), radial-gradient(circle at 10% 78%, rgba(100,112,118,.075), transparent 30%), #090909; }
+.app-launch-page-hero h1 { font-size: clamp(3.35rem,15.5vw,9rem); }
+.app-launch-section-inner { width: 100%; max-width: 1440px; margin: 0 auto; }
+.app-launch-gallery { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; align-items: start; }
+.app-launch-item { min-width: 0; align-self: start; }
+.app-launch-card { position: relative; display: block; width: 100%; overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 24px; padding: 0; background: rgba(18,19,19,.86); box-shadow: 0 24px 80px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.035); color: #fff; text-align: left; cursor: zoom-in; backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); transition: border-color .4s ease, transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease; }
+.app-launch-card-media { position: relative; display: block; width: 100%; overflow: hidden; background: #070707; }
+.app-launch-card-image { position: relative; z-index: 1; display: block; width: 100%; height: auto; object-fit: contain; background: #070707; transition: transform .75s cubic-bezier(.16,1,.3,1), filter .45s ease; }
+.app-launch-placeholder { position: absolute; inset: 0; display: grid; min-height: 420px; place-items: center; background: radial-gradient(circle at 70% 24%, rgba(239,206,150,.08), transparent 22%), radial-gradient(circle at 28% 78%, rgba(100,112,118,.12), transparent 31%), linear-gradient(145deg,#1d1e1f,#080909 62%,#151412); color: rgba(255,255,255,.13); }
+.app-launch-placeholder > span { font-size: clamp(4rem,13vw,9rem); font-weight: 300; letter-spacing: -.08em; }
+.app-launch-placeholder small { position: absolute; bottom: 1rem; max-width: 75%; overflow: hidden; color: rgba(255,255,255,.18); font-size: .5rem; letter-spacing: .08em; text-overflow: ellipsis; white-space: nowrap; }
+.app-launch-card-overlay { position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, transparent 70%, rgba(3,3,3,.68) 100%); pointer-events: none; transition: background .4s ease; }
+.app-launch-card-caption { position: absolute; z-index: 3; right: 0; bottom: 0; left: 0; display: flex; align-items: flex-end; gap: .8rem; padding: 1.1rem; }
+.app-launch-card-number { flex: 0 0 auto; color: #efce96; font-size: .6rem; font-weight: 650; letter-spacing: .12em; }
+.app-launch-card-text { display: flex; min-width: 0; flex-direction: column; gap: .3rem; }
+.app-launch-card-text strong { overflow: hidden; font-size: 1rem; font-weight: 600; letter-spacing: -.025em; text-overflow: ellipsis; white-space: nowrap; }
+.app-launch-card-text small { color: rgba(255,255,255,.55); font-size: .5rem; letter-spacing: .1em; }
+.app-launch-card-caption svg { flex: 0 0 auto; margin-left: auto; color: #efce96; opacity: .68; transition: opacity .3s ease, transform .35s cubic-bezier(.16,1,.3,1); }
+.app-launch-card:hover { border-color: rgba(239,206,150,.24); box-shadow: 0 34px 100px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.045); transform: translateY(-4px); }
+.app-launch-card:hover .app-launch-card-image { filter: brightness(1.025); transform: scale(1.02); }
+.app-launch-card:hover .app-launch-card-overlay { background: linear-gradient(180deg, transparent 74%, rgba(3,3,3,.59) 100%); }
+.app-launch-card:hover .app-launch-card-caption svg { opacity: 1; transform: translate(3px,-3px); }
+.app-launch-card:focus-visible { outline: 2px solid #efce96; outline-offset: 4px; }
+.app-launch-end-reveal { margin-top: 2rem; }
+.app-launch-end-navigation { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; }
 .ipvi-section { min-height: 100svh; align-items: stretch; padding-top: 4rem; padding-bottom: 6.5rem; background: radial-gradient(circle at 84% 13%, rgba(239,206,150,.055), transparent 27%), radial-gradient(circle at 12% 82%, rgba(106,118,123,.075), transparent 31%), #090909; }
 .ipvi-section-inner { width: 100%; max-width: 1440px; margin: 0 auto; }
 .ipvi-desktop-showcase { display: none; }
@@ -411,6 +436,11 @@ button { color: inherit; font: inherit; }
   .banner-card-caption { padding: 1.25rem; }
   .banner-end-reveal { margin-top: 2.75rem; }
   .banner-end-navigation { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
+  .app-launch-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
+  .app-launch-card { border-radius: 30px; }
+  .app-launch-card-caption { padding: 1.35rem; }
+  .app-launch-end-reveal { margin-top: 2.75rem; }
+  .app-launch-end-navigation { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
   .ipvi-desktop-showcase { display: block; }
   .ipvi-mobile-project-list { display: none; }
   .ipvi-project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
@@ -465,6 +495,12 @@ button { color: inherit; font: inherit; }
   .banner-card { border-radius: 34px; }
   .banner-card-caption { padding: 1.5rem; }
   .banner-end-navigation { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+  .app-launch-section { padding-top: 6rem; padding-bottom: 8rem; }
+  .app-launch-gallery { gap: 1.5rem; }
+  .app-launch-card { border-radius: 36px; }
+  .app-launch-card-caption { padding: 1.6rem; }
+  .app-launch-card-text strong { font-size: 1.2rem; }
+  .app-launch-end-navigation { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
   .ipvi-section { padding-top: 6rem; padding-bottom: 8rem; }
   .ipvi-project-grid { gap: 1.5rem; }
   .ipvi-featured-reveal { margin-bottom: 1.5rem; }
@@ -489,6 +525,10 @@ button { color: inherit; font: inherit; }
 }
 
 @media (min-width: 1180px) {
+  .app-launch-gallery { grid-template-columns: repeat(6,minmax(0,1fr)); }
+  .app-launch-item-third { grid-column: span 2; }
+  .app-launch-item-half { grid-column: span 3; }
+  .app-launch-item-closing { grid-column: 3 / span 2; }
   .about-layout { grid-template-columns: minmax(360px, .9fr) minmax(0, 1.35fr); gap: 1.5rem; align-items: stretch; }
   .about-content-column, .about-small-grid { gap: 1.5rem; }
   .about-photo-card { display: flex; min-height: 440px; flex-direction: column; border-radius: 40px; }
