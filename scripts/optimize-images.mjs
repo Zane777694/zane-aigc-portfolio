@@ -4,7 +4,13 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicRoot = path.join(repoRoot, 'public');
+const requestedTarget = process.argv[2] ?? '.';
+const targetRoot = path.resolve(publicRoot, requestedTarget);
 const pnpmRoot = path.join(repoRoot, 'node_modules', '.pnpm');
+
+if (targetRoot !== publicRoot && !targetRoot.startsWith(`${publicRoot}${path.sep}`)) {
+  throw new Error('Image target must stay inside the public directory.');
+}
 
 const sharpDir = (await readdir(pnpmRoot, { withFileTypes: true }))
   .find((entry) => entry.isDirectory() && entry.name.startsWith('sharp@'));
@@ -27,7 +33,7 @@ async function collectImages(directory) {
   return nested.flat();
 }
 
-const images = await collectImages(publicRoot);
+const images = await collectImages(targetRoot);
 let bytesBefore = 0;
 let bytesAfter = 0;
 
@@ -39,8 +45,8 @@ for (const input of images) {
 
   await sharp(input)
     .rotate()
-    .resize({ width: 2400, height: 2400, fit: 'inside', withoutEnlargement: true })
-    .webp({ quality: 82, effort: 4, smartSubsample: true })
+    .resize({ width: 1920, height: 1920, fit: 'inside', withoutEnlargement: true })
+    .webp({ quality: 80, effort: 5, smartSubsample: true })
     .toFile(temporary);
 
   await rm(output, { force: true });
