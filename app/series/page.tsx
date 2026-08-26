@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function SeriesPage() {
   return (
     <main className="secondary-page-shell">
-      <SecondaryHeader siblingHref="/visual" siblingLabel="WORK" />
+      <SecondaryHeader />
       <SeriesLanding />
       <SiteFooter />
     </main>

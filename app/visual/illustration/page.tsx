@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function IllustrationPage() {
-  return <main className="secondary-page-shell illustration-page-shell"><SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" /><IllustrationSection /><SiteFooter /></main>;
+  return <main className="secondary-page-shell illustration-page-shell"><SecondaryHeader backHref="/visual" /><IllustrationSection /><SiteFooter /></main>;
 }

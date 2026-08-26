@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function TypographyPage() {
-  return <main className="secondary-page-shell typography-page-shell"><SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" /><TypographySection /><SiteFooter /></main>;
+  return <main className="secondary-page-shell typography-page-shell"><SecondaryHeader backHref="/visual" /><TypographySection /><SiteFooter /></main>;
 }

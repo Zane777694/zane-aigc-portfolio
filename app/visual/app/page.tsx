@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AppLaunchPage() {
   return (
     <main className="secondary-page-shell app-launch-page-shell">
-      <SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" />
+      <SecondaryHeader backHref="/visual" />
       <AppLaunchSection />
       <SiteFooter />
     </main>

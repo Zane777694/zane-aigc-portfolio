@@ -5,9 +5,9 @@ export const illustrationWorks: VisualArtwork[] = [
   { id: 'illustration-01', number: '01', image: '/works/illustration/illustration-01.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'third' },
   { id: 'illustration-02', number: '02', image: '/works/illustration/illustration-02.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'third' },
   { id: 'illustration-03', number: '03', image: '/works/illustration/illustration-03.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'third' },
-  { id: 'illustration-04', number: '04', image: '/works/illustration/illustration-04.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'half' },
-  { id: 'illustration-05', number: '05', image: '/works/illustration/illustration-05.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'half' },
-  { id: 'illustration-06', number: '06', image: '/works/illustration/illustration-06.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 941, height: 1672, orientation: 'portrait', layout: 'closing' },
+  { id: 'illustration-04', number: '04', image: '/works/illustration/illustration-04.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'third' },
+  { id: 'illustration-05', number: '05', image: '/works/illustration/illustration-05.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 1024, height: 1536, orientation: 'portrait', layout: 'third' },
+  { id: 'illustration-06', number: '06', image: '/works/illustration/illustration-06.png', title: '', category: 'AI ILLUSTRATION / ART DIRECTION', width: 941, height: 1672, orientation: 'portrait', layout: 'third' },
 ];
 
 export default function IllustrationSection() {

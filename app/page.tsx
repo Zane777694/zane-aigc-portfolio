@@ -69,69 +69,46 @@ function PortfolioCard({
   title: string;
   chineseTitle: string;
   subtitle: string;
-  href: string;
+  href?: string;
   delay: number;
   image?: string;
   tone?: 'gold' | 'slate';
 }) {
+  const className = `info-card ${image ? 'image-card' : 'glass-card'} ${tone ? `info-card-${tone}` : ''} ${href ? '' : 'info-card-disabled'}`;
+  const isExternal = href?.startsWith('http');
+  const content = (
+    <>
+      <span className="card-title-wrap">
+        <span className="card-title">{title}</span>
+        <span className="card-title-chinese">{chineseTitle}</span>
+      </span>
+      <span className="card-bottom">
+        <span className="card-subtitle">{subtitle}</span>
+        <span className="round-arrow" aria-hidden="true">
+          <ArrowRight size={17} strokeWidth={1.7} />
+        </span>
+      </span>
+    </>
+  );
+
   return (
     <Reveal delay={delay} direction="right">
-      <Link
-        className={`info-card ${image ? 'image-card' : 'glass-card'} ${tone ? `info-card-${tone}` : ''}`}
-        href={href}
-        style={image ? { backgroundImage: `url(${image})` } : undefined}
-      >
-        <span className="card-title-wrap">
-          <span className="card-title">{title}</span>
-          <span className="card-title-chinese">{chineseTitle}</span>
-        </span>
-        <span className="card-bottom">
-          <span className="card-subtitle">{subtitle}</span>
-          <span className="round-arrow" aria-hidden="true">
-            <ArrowRight size={17} strokeWidth={1.7} />
-          </span>
-        </span>
-      </Link>
+      {href ? (
+        <a
+          className={className}
+          href={href}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer noopener' : undefined}
+          style={image ? { backgroundImage: `url(${image})` } : undefined}
+        >
+          {content}
+        </a>
+      ) : (
+        <div className={className} style={image ? { backgroundImage: `url(${image})` } : undefined} aria-disabled="true">
+          {content}
+        </div>
+      )}
     </Reveal>
-  );
-}
-
-function SectionFrame({
-  id,
-  number,
-  title,
-  chineseTitle,
-  subtitle,
-  children,
-}: {
-  id: string;
-  number: string;
-  title: string;
-  chineseTitle?: string;
-  subtitle: string;
-  children?: React.ReactNode;
-}) {
-  return (
-    <section id={id} className={`portfolio-section ${id === 'contact' ? 'contact-section' : ''}`} aria-labelledby={`${id}-title`}>
-      <Reveal direction="up" className="section-frame">
-        <div className="section-heading">
-          <span className="section-number">{number}</span>
-          <div>
-            <p className="section-kicker">{subtitle}</p>
-            <h2 id={`${id}-title`}>{title}</h2>
-            {chineseTitle ? <p className="section-chinese-title">{chineseTitle}</p> : null}
-          </div>
-        </div>
-        <div className="section-placeholder">
-          {children ?? (
-            <>
-              <span>SECTION FRAMEWORK</span>
-              <span>CONTENT IN NEXT PHASE</span>
-            </>
-          )}
-        </div>
-      </Reveal>
-    </section>
   );
 }
 
@@ -183,12 +160,6 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={1000} direction="up" className="hero-footer">
-              <div className="portfolio-tags" aria-label="Portfolio disciplines">
-                <span>AI Visual Design</span>
-                <span>AI Series</span>
-                <span>Brand Visual</span>
-                <span>Creative Production</span>
-              </div>
               <div className="ruler ticker-mask" aria-hidden="true">
                 <div className="ruler-track animate-ticker">
                   {[...ticks, ...ticks].map((tick, index) => (
@@ -207,22 +178,14 @@ export default function Home() {
             </div>
             <div className="card-column">
               <PortfolioCard title="AI SERIES" chineseTitle="AI剧集" subtitle="Character / Scene / Props" href="/series" delay={650} image={SERIES_IMAGE_URL} />
-              <PortfolioCard title="CONTACT" chineseTitle="联系我" subtitle="Let's Work Together" href="#contact" delay={950} image={CONTACT_IMAGE_URL} />
+              <PortfolioCard title="APP DESIGN WEBSITE" chineseTitle="APP设计官网" subtitle="Product / Interface / Experience" href="https://zane777694.github.io/shiguang-food-memories/" delay={950} image={CONTACT_IMAGE_URL} />
             </div>
           </div>
+
         </div>
       </section>
 
       <AboutSection />
-      <SectionFrame id="contact" number="03" title="CONTACT" chineseTitle="联系我" subtitle="Let's Work Together">
-        <div className="contact-fields" aria-label="Contact information">
-          <div><small>NAME / 姓名</small><strong>武子尧</strong></div>
-          <a href="mailto:1413159905@qq.com"><small>EMAIL / 邮箱</small><strong>1413159905@qq.com</strong></a>
-          <a href="tel:13844067883"><small>PHONE / 电话</small><strong>13844067883</strong></a>
-          <div><small>WECHAT / 微信</small><strong>13844067883</strong></div>
-        </div>
-        <span className="contact-cta">OPEN TO COLLABORATION / 欢迎联系</span>
-      </SectionFrame>
       <SiteFooter />
     </main>
   );

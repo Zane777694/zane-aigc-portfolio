@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function PosterPage() {
   return (
     <main className="secondary-page-shell poster-page-shell">
-      <SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" />
+      <SecondaryHeader backHref="/visual" />
       <PosterSection />
       <SiteFooter />
     </main>

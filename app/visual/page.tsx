@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function VisualPage() {
   return (
     <main className="secondary-page-shell">
-      <SecondaryHeader siblingHref="/series" siblingLabel="AI SERIES" />
+      <SecondaryHeader />
       <VisualDesignSection />
       <SiteFooter />
     </main>

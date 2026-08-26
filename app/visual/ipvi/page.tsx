@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function IpViPage() {
   return (
     <main className="secondary-page-shell ipvi-page-shell">
-      <SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" />
+      <SecondaryHeader backHref="/visual" />
       <IpViSection />
       <SiteFooter />
     </main>

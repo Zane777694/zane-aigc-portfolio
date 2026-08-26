@@ -52,7 +52,7 @@ export default function VisualArtworkSection({ sectionNumber, title, titleLines,
           </div>
 
           <AnimatedElement className="visual-collection-end-reveal">
-            <div className="visual-collection-end-navigation">
+            <div className={`visual-collection-end-navigation ${next ? '' : 'is-complete'}`}>
               <Link className="poster-next-category poster-back-categories" href="/visual">
                 <ArrowLeft size={24} strokeWidth={1.4} aria-hidden="true" />
                 <span><small>BACK TO</small><strong>AI VISUAL DESIGN</strong><em>VIEW ALL CATEGORIES</em></span>
@@ -61,16 +61,11 @@ export default function VisualArtworkSection({ sectionNumber, title, titleLines,
                 <ArrowLeft size={24} strokeWidth={1.4} aria-hidden="true" />
                 <span><small>PREVIOUS CATEGORY</small><strong>{previous.label}</strong><em>{previous.detail}</em></span>
               </Link>
-              {next ? (
+              {next && (
                 <Link className="poster-next-category" href={next.href}>
                   <span><small>NEXT CATEGORY</small><strong>{next.label}</strong><em>{next.detail}</em></span>
                   <ArrowRight size={24} strokeWidth={1.4} aria-hidden="true" />
                 </Link>
-              ) : (
-                <div className="poster-next-category poster-next-category-disabled" aria-disabled="true">
-                  <span><small>END OF CATEGORIES</small><strong>VISUAL INDEX</strong><em>COLLECTION COMPLETE</em></span>
-                  <ArrowRight size={24} strokeWidth={1.4} aria-hidden="true" />
-                </div>
               )}
             </div>
           </AnimatedElement>

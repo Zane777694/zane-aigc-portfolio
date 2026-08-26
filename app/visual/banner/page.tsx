@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function BannerPage() {
   return (
     <main className="secondary-page-shell banner-page-shell">
-      <SecondaryHeader siblingHref="/visual" siblingLabel="AI VISUAL DESIGN" />
+      <SecondaryHeader backHref="/visual" />
       <BannerSection />
       <SiteFooter />
     </main>

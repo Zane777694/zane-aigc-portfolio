@@ -11,9 +11,9 @@ export const appWorks: AppWork[] = [
   { id: 'app-01', number: '01', image: '/works/app/app-01.png', title: '妙启', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 941, height: 1672 },
   { id: 'app-02', number: '02', image: '/works/app/app-02.png', title: 'ECHOTALK', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 941, height: 1672 },
   { id: 'app-03', number: '03', image: '/works/app/app-03.png', title: 'LOOPCAST', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 941, height: 1672 },
-  { id: 'app-04', number: '04', image: '/works/app/app-04.png', title: 'GEOTRACE', category: 'APP LAUNCH SCREEN', featured: true, orientation: 'portrait', layout: 'half', width: 941, height: 1672 },
-  { id: 'app-05', number: '05', image: '/works/app/app-05.png', title: '童绘故事', category: 'APP LAUNCH SCREEN', featured: true, orientation: 'portrait', layout: 'half', width: 941, height: 1672 },
-  { id: 'app-06', number: '06', image: '/works/app/app-06.png', title: 'SPORTEK', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'closing', width: 853, height: 1844 },
+  { id: 'app-04', number: '04', image: '/works/app/app-04.png', title: 'GEOTRACE', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 941, height: 1672 },
+  { id: 'app-05', number: '05', image: '/works/app/app-05.png', title: '童绘故事', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 941, height: 1672 },
+  { id: 'app-06', number: '06', image: '/works/app/app-06.png', title: 'SPORTEK', category: 'APP LAUNCH SCREEN', featured: false, orientation: 'portrait', layout: 'third', width: 853, height: 1844 },
 ];
 
 export default function AppLaunchSection() {

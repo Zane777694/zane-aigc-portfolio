@@ -17,7 +17,7 @@ export default function AppLaunchCard({ work, onOpen }: { work: AppWork; onOpen:
   const [imageAvailable, setImageAvailable] = useState(true);
 
   return (
-    <button type="button" className="app-launch-card" onClick={onOpen} aria-label={`Open ${work.title} app launch screen preview`}>
+    <button type="button" className="app-launch-card" data-work-id={work.id} onClick={onOpen} aria-label={`Open ${work.title} app launch screen preview`}>
       <span className="app-launch-card-media">
         <span className="app-launch-placeholder" aria-hidden="true"><span>{work.number}</span><small>{work.image}</small></span>
         {imageAvailable && (
