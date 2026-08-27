@@ -23,6 +23,7 @@ for (const file of files) {
   for (const prefix of publicAssetPrefixes) {
     content = content.replaceAll(`\"/${prefix}`, `\"${basePath}/${prefix}`);
     content = content.replaceAll(`'/${prefix}`, `'${basePath}/${prefix}`);
+    content = content.replaceAll(`url(/${prefix}`, `url(${basePath}/${prefix}`);
   }
   await writeFile(file, content);
 }
