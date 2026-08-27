@@ -96,7 +96,7 @@ export default function AboutSection() {
               <div className="about-photo-media">
                 {photoAvailable && (
                   <Image
-                    src="/profile.png"
+                    src="/profile.webp"
                     alt="ZANE / 武子尧 portrait"
                     fill
                     sizes="(min-width: 1180px) 38vw, 100vw"
@@ -108,7 +108,7 @@ export default function AboutSection() {
                 )}
                 <div className="about-photo-placeholder" aria-hidden="true">
                   <span>PORTRAIT</span>
-                  <small>/public/profile.png</small>
+                  <small>/public/profile.webp</small>
                 </div>
                 <div className="about-photo-overlay" aria-hidden="true" />
               </div>

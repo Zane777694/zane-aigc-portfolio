@@ -12,7 +12,7 @@ export type VisualArtwork = LightboxWork & {
   layout: 'third' | 'half' | 'closing';
 };
 
-export default function VisualArtworkCard({ work, onOpen }: { work: VisualArtwork; onOpen: () => void }) {
+export default function VisualArtworkCard({ work, onOpen, priority = false }: { work: VisualArtwork; onOpen: () => void; priority?: boolean }) {
   const [imageAvailable, setImageAvailable] = useState(true);
 
   return (
@@ -27,7 +27,8 @@ export default function VisualArtworkCard({ work, onOpen }: { work: VisualArtwor
             height={work.height}
             sizes={work.layout === 'half' ? '(min-width: 1180px) 50vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 1180px) 33vw, (min-width: 640px) 50vw, 100vw'}
             className="visual-artwork-image"
-            loading="lazy"
+            priority={priority}
+            loading={priority ? 'eager' : 'lazy'}
             decoding="async"
             onError={() => setImageAvailable(false)}
             unoptimized

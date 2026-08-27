@@ -8,15 +8,15 @@ import BannerCard, { type BannerWork } from './BannerCard';
 import WorkLightbox from './WorkLightbox';
 
 const bannerWorks: BannerWork[] = [
-  { id: 'banner-01', number: '01', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-01.png', width: 2172, height: 724, featured: true },
-  { id: 'banner-02', number: '02', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-02.png', width: 2172, height: 724, featured: true },
-  { id: 'banner-03', number: '03', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-03.png', width: 2172, height: 724, featured: true },
-  { id: 'banner-04', number: '04', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-04.png', width: 2066, height: 761 },
-  { id: 'banner-05', number: '05', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-05.png', width: 1907, height: 825 },
-  { id: 'banner-06', number: '06', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-06.png', width: 1774, height: 887 },
-  { id: 'banner-07', number: '07', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-07.png', width: 1774, height: 887 },
-  { id: 'banner-08', number: '08', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-08.png', width: 1983, height: 793 },
-  { id: 'banner-09', number: '09', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-09.png', width: 1983, height: 793 },
+  { id: 'banner-01', number: '01', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-01.webp', width: 2172, height: 724, featured: true },
+  { id: 'banner-02', number: '02', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-02.webp', width: 2172, height: 724, featured: true },
+  { id: 'banner-03', number: '03', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-03.webp', width: 2172, height: 724, featured: true },
+  { id: 'banner-04', number: '04', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-04.webp', width: 2066, height: 761 },
+  { id: 'banner-05', number: '05', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-05.webp', width: 1907, height: 825 },
+  { id: 'banner-06', number: '06', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-06.webp', width: 1774, height: 887 },
+  { id: 'banner-07', number: '07', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-07.webp', width: 1774, height: 887 },
+  { id: 'banner-08', number: '08', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-08.webp', width: 1983, height: 793 },
+  { id: 'banner-09', number: '09', title: '', category: 'BANNER / VISUAL DESIGN', image: '/works/banner/banner-09.webp', width: 1983, height: 793 },
 ];
 
 export default function BannerSection() {
@@ -70,3 +70,4 @@ export default function BannerSection() {
     </>
   );
 }
+

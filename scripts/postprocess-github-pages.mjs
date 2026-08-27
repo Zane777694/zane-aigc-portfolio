@@ -4,7 +4,7 @@ import path from 'node:path';
 const outputRoot = path.resolve(process.argv[2] ?? 'out');
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const textExtensions = new Set(['.css', '.html', '.js', '.json', '.txt', '.xml']);
-const publicAssetPrefixes = ['works/', 'profile.png', 'hero-golden-spiral.png', 'og.png', 'favicon.svg'];
+const publicAssetPrefixes = ['works/', 'profile.webp', 'hero-golden-spiral.webp', 'og.png', 'favicon.svg'];
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -27,8 +27,8 @@ for (const file of files) {
   await writeFile(file, content);
 }
 
-const aiSeriesRoot = path.join(outputRoot, 'works', 'ai-series');
-for (const file of await walk(aiSeriesRoot)) {
+const worksRoot = path.join(outputRoot, 'works');
+for (const file of await walk(worksRoot)) {
   if (['.png', '.jpg', '.jpeg'].includes(path.extname(file).toLowerCase())) {
     await rm(file);
   }

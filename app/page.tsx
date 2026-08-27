@@ -8,7 +8,7 @@ import SiteFooter from './components/SiteFooter';
 
 const VIDEO_URL =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_044635_8daabe05-1a5c-491c-920f-4b0bd8f04812.mp4';
-const HERO_TEXTURE_URL = '/hero-golden-spiral.png';
+const HERO_TEXTURE_URL = '/hero-golden-spiral.webp';
 const SERIES_IMAGE_URL =
   'https://polo-pecan-73837341.figma.site/_assets/v11/94903fdf21e145cd4ba873c15fc03251c0600ee5.png';
 const CONTACT_IMAGE_URL =

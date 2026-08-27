@@ -46,7 +46,7 @@ export default function VisualArtworkSection({ sectionNumber, title, titleLines,
           <div className={`visual-collection-gallery ${className}-gallery`}>
             {works.map((work, index) => (
               <AnimatedElement key={work.id} delay={Math.min(80 + index * 80, 480)} className={`visual-collection-item visual-collection-item-${work.layout}`}>
-                <VisualArtworkCard work={work} onOpen={() => setActiveIndex(index)} />
+                <VisualArtworkCard work={work} onOpen={() => setActiveIndex(index)} priority={index < 3} />
               </AnimatedElement>
             ))}
           </div>

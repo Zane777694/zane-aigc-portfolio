@@ -33,7 +33,10 @@ async function collectImages(directory) {
   return nested.flat();
 }
 
-const images = await collectImages(targetRoot);
+const targetStats = await stat(targetRoot);
+const images = targetStats.isDirectory()
+  ? await collectImages(targetRoot)
+  : sourceExtensions.has(path.extname(targetRoot).toLowerCase()) ? [targetRoot] : [];
 let bytesBefore = 0;
 let bytesAfter = 0;
 

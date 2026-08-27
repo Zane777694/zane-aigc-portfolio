@@ -7,18 +7,18 @@ import PosterCard, { type PosterWork } from './PosterCard';
 import WorkLightbox from './WorkLightbox';
 
 const posterWorks: PosterWork[] = [
-  { id: 'poster-01', number: '01', title: 'ENIGMA', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-01.jpg', orientation: 'portrait', layout: 'featured' },
-  { id: 'poster-02', number: '02', title: 'YORMY G', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-02.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-03', number: '03', title: 'HYPE CREW', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-03.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-04', number: '04', title: 'BREAK THROUGH', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-04.jpg', orientation: 'portrait', layout: 'wide' },
-  { id: 'poster-05', number: '05', title: 'DREAM GARDEN', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-05.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-06', number: '06', title: 'NEXT LEVEL', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-06.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-07', number: '07', title: 'IN BLOOM, IN SHADOW', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-07.jpg', orientation: 'portrait', layout: 'wide' },
-  { id: 'poster-08', number: '08', title: 'DESTINY', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-08.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-09', number: '09', title: 'CYBER MUSE', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-09.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-10', number: '10', title: 'STAR DUST', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-10.jpg', orientation: 'portrait', layout: 'wide' },
-  { id: 'poster-11', number: '11', title: 'VELVET BLOOM', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-11.jpg', orientation: 'portrait', layout: 'half' },
-  { id: 'poster-12', number: '12', title: 'STREET MODE', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-12.jpg', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-01', number: '01', title: 'ENIGMA', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-01.webp', orientation: 'portrait', layout: 'featured' },
+  { id: 'poster-02', number: '02', title: 'YORMY G', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-02.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-03', number: '03', title: 'HYPE CREW', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-03.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-04', number: '04', title: 'BREAK THROUGH', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-04.webp', orientation: 'portrait', layout: 'wide' },
+  { id: 'poster-05', number: '05', title: 'DREAM GARDEN', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-05.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-06', number: '06', title: 'NEXT LEVEL', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-06.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-07', number: '07', title: 'IN BLOOM, IN SHADOW', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-07.webp', orientation: 'portrait', layout: 'wide' },
+  { id: 'poster-08', number: '08', title: 'DESTINY', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-08.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-09', number: '09', title: 'CYBER MUSE', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-09.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-10', number: '10', title: 'STAR DUST', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-10.webp', orientation: 'portrait', layout: 'wide' },
+  { id: 'poster-11', number: '11', title: 'VELVET BLOOM', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-11.webp', orientation: 'portrait', layout: 'half' },
+  { id: 'poster-12', number: '12', title: 'STREET MODE', category: 'AI VISUAL / POSTER DESIGN', image: '/works/poster/poster-12.webp', orientation: 'portrait', layout: 'half' },
 ];
 
 function PosterReveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -95,3 +95,4 @@ export default function PosterSection() {
     </>
   );
 }
+

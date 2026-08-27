@@ -9,7 +9,7 @@ const categories: WorkCategory[] = [
     title: 'POSTER DESIGN',
     chineseTitle: '海报设计',
     subtitle: 'Commercial / Concept / AI Visual',
-    image: '/works/poster/poster-cover.png',
+    image: '/works/poster/poster-cover.webp',
     href: '/visual/poster',
   },
   {
@@ -17,7 +17,7 @@ const categories: WorkCategory[] = [
     title: 'BANNER DESIGN',
     chineseTitle: '横幅设计',
     subtitle: 'Digital Campaign / Promotion',
-    image: '/works/banner/banner-01.png',
+    image: '/works/banner/banner-01.webp',
     href: '/visual/banner',
   },
   {
@@ -25,7 +25,7 @@ const categories: WorkCategory[] = [
     title: 'IP & VI',
     chineseTitle: 'IP与视觉延展',
     subtitle: 'Character / Brand Extension',
-    image: '/works/ipvi/qihang-bear.png',
+    image: '/works/ipvi/qihang-bear.webp',
     href: '/visual/ipvi',
   },
   {
@@ -33,7 +33,7 @@ const categories: WorkCategory[] = [
     title: 'APP LAUNCH SCREEN',
     chineseTitle: 'APP启动页',
     subtitle: 'Interface / Visual Experience',
-    image: '/works/app/app-01.png',
+    image: '/works/app/app-01.webp',
     href: '/visual/app',
   },
   {
@@ -41,7 +41,7 @@ const categories: WorkCategory[] = [
     title: 'TYPOGRAPHY',
     chineseTitle: '字体设计',
     subtitle: 'Type / Graphic Experiment',
-    image: '/works/typography/typography-01.png',
+    image: '/works/typography/typography-01.webp',
     href: '/visual/typography',
   },
   {
@@ -49,7 +49,7 @@ const categories: WorkCategory[] = [
     title: 'ILLUSTRATION',
     chineseTitle: '插画设计',
     subtitle: 'AI Illustration / Art Direction',
-    image: '/works/illustration/illustration-06.png',
+    image: '/works/illustration/illustration-06.webp',
     href: '/visual/illustration',
   },
 ];
@@ -115,3 +115,4 @@ export default function VisualDesignSection() {
     </section>
   );
 }
+
