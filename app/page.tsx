@@ -94,15 +94,25 @@ function PortfolioCard({
   return (
     <Reveal delay={delay} direction="right">
       {href ? (
-        <a
-          className={className}
-          href={href}
-          target={isExternal ? '_blank' : undefined}
-          rel={isExternal ? 'noreferrer noopener' : undefined}
-          style={image ? { backgroundImage: `url(${image})` } : undefined}
-        >
-          {content}
-        </a>
+        isExternal ? (
+          <a
+            className={className}
+            href={href}
+            target="_blank"
+            rel="noreferrer noopener"
+            style={image ? { backgroundImage: `url(${image})` } : undefined}
+          >
+            {content}
+          </a>
+        ) : (
+          <Link
+            className={className}
+            href={href}
+            style={image ? { backgroundImage: `url(${image})` } : undefined}
+          >
+            {content}
+          </Link>
+        )
       ) : (
         <div className={className} style={image ? { backgroundImage: `url(${image})` } : undefined} aria-disabled="true">
           {content}
